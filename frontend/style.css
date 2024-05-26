@@ -1,0 +1,178 @@
+body {
+  background-color: rgb(255, 255, 255);
+  margin: 0 0;
+  font-family: "Satoshi", sans-serif;
+}
+
+/*global positioning classes */
+.box-padding {
+  margin: 40px 40px;
+}
+
+/* button prologue */
+#welcome-screen {
+  height: 98svh;
+  width: 99svw;
+}
+
+#open-console-button {
+  border: dashed black 5px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 100px;
+  animation: glow 3000ms infinite ease-out forwards;
+  cursor: pointer;
+  transition-duration: 200ms;
+  &:hover {
+    animation-play-state: paused;
+    background-color: black;
+    transition-duration: 500ms;
+  }
+}
+
+#move {
+  aspect-ratio: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+}
+
+/*website content*/
+#heading-wrapper {
+  position: relative;
+  visibility: hidden;
+  transition-duration: 200ms;
+  width: 100%;
+}
+
+#heading-container {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+#welcome-content {
+  display: flex;
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center; /* Centers the content vertically if necessary */
+  padding: 150px 0;
+  text-align: center; /* Ensures text alignment for inner text */
+  width: 100%; /* Ensures the container takes full width */
+}
+
+.text-container {
+  display: inline-flex; /* Makes the container fit the content */
+  flex-direction: column; /* Stacks title and subtitle vertically */
+  align-items: center; /* Centers children horizontally */
+  width: max-content; /* Ensures the container width is minimal to fit content */
+}
+
+/*global text classes*/
+.page-heading {
+  margin: 0 0;
+  font-weight: 1000;
+  font-size: 60px;
+}
+
+.page-subtitle {
+  margin: 0 auto;
+  font-weight: 700;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.welcome-title {
+  font-size: 80px;
+  font-weight: 1000;
+  margin: 0;
+}
+
+.welcome-subtitle {
+  font-size: 30px;
+  font-weight: 600;
+  font-style: italic;
+  text-align: right;
+  width: 100%; /* Ensures subtitle takes full width of container */
+}
+
+/*menu button and overlay*/
+#menu-button-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 40px 40px;
+}
+
+#menu-button {
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  background-color: black;
+  border: none;
+  transition-duration: 300ms;
+  cursor: pointer;
+
+  &:hover {
+    background-color: white;
+    border: dashed 3px black;
+    height: 100px;
+    width: 100px;
+    transition-duration: 200ms;
+    animation: mb-glow 2000ms linear infinite;
+
+    &:active {
+      animation-play-state: paused;
+    }
+  }
+}
+.mb-minimize {
+  animation: subtleness 4000ms ease-in 1 forwards;
+  animation-delay: 1000ms;
+  transition-duration: 200ms;
+}
+/*animations*/
+@keyframes glow {
+  0%,
+  100% {
+    height: 90px;
+    width: 90px;
+    transform: rotate(-90deg);
+  }
+  50% {
+    height: 150px;
+    width: 150px;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes mb-glow {
+  0% {
+    transform: rotate(-180deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes subtleness {
+  0%,
+  50% {
+    height: 100px;
+    width: 100px;
+  }
+
+  100% {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
