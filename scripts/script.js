@@ -5,7 +5,7 @@ document.getElementById("open-console-button").onclick = function () {
   }, 50);
 
   setTimeout(() => {
-    document.getElementById("heading-wrapper").style.visibility = "visible";
+    document.getElementById("page-wrapper").style.visibility = "visible";
   }, 101);
 };
 
@@ -24,13 +24,16 @@ document.body.onpointermove = (event) => {
   );
 };
 
+/*options button */
 document.getElementById("menu-button").onmouseover = function () {
-  this.classList.remove("mb-minimize");
+  this.style.transform = "scale(1.5)";
+  setTimeout(() => {
+    this.classList.remove("mb-minimize");
+  }, 200);
 };
 
 document.getElementById("menu-button").onmouseout = function () {
-  this.style.height = "100px";
-  this.style.width = "100px";
+  this.style.transform = "scale(1)";
   setTimeout(() => {
     this.classList.add("mb-minimize");
   }, 200);

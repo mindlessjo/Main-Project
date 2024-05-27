@@ -6,7 +6,7 @@ body {
 
 /*global positioning classes */
 .box-padding {
-  margin: 40px 40px;
+  margin: 20px 40px;
 }
 
 /* button prologue */
@@ -19,9 +19,11 @@ body {
   border: dashed black 5px;
   background-color: rgb(255, 255, 255);
   border-radius: 100px;
-  animation: glow 3000ms infinite ease-out forwards;
+  animation: glow 2000ms infinite linear forwards;
   cursor: pointer;
   transition-duration: 200ms;
+  height: 100px;
+  width: 100px;
   &:hover {
     animation-play-state: paused;
     background-color: black;
@@ -38,7 +40,7 @@ body {
 }
 
 /*website content*/
-#heading-wrapper {
+#page-wrapper {
   position: relative;
   visibility: hidden;
   transition-duration: 200ms;
@@ -47,15 +49,16 @@ body {
 
 #heading-container {
   position: relative;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
+  padding: 0px 40px 5px 40px;
 }
 
 #welcome-content {
   display: flex;
   justify-content: center; /* Centers the content horizontally */
   align-items: center; /* Centers the content vertically if necessary */
-  padding: 150px 0;
+  padding: 300px 0;
   text-align: center; /* Ensures text alignment for inner text */
   width: 100%; /* Ensures the container takes full width */
 }
@@ -68,10 +71,27 @@ body {
 }
 
 /*global text classes*/
+.uline {
+  text-decoration: underline 10px solid black;
+  text-underline-offset: 10px;
+}
+
 .page-heading {
   margin: 0 0;
   font-weight: 1000;
   font-size: 60px;
+  position: fixed;
+  width: 95%;
+  z-index: 1;
+  background-color: white;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.page-heading:hover .page-subtitle {
+  background-color: white;
 }
 
 .page-subtitle {
@@ -79,6 +99,9 @@ body {
   font-weight: 700;
   font-size: 20px;
   font-style: italic;
+  position: relative;
+  z-index: 1;
+  background-color: blue;
 }
 
 .welcome-title {
@@ -100,7 +123,8 @@ body {
   position: fixed;
   top: 0;
   right: 0;
-  padding: 40px 40px;
+  padding: 20px 40px;
+  z-index: 2;
 }
 
 #menu-button {
@@ -115,8 +139,6 @@ body {
   &:hover {
     background-color: white;
     border: dashed 3px black;
-    height: 100px;
-    width: 100px;
     transition-duration: 200ms;
     animation: mb-glow 2000ms linear infinite;
 
@@ -132,26 +154,30 @@ body {
 }
 /*animations*/
 @keyframes glow {
-  0%,
-  100% {
-    height: 90px;
-    width: 90px;
-    transform: rotate(-90deg);
+  0% {
+    transform: rotate(180deg) scale(1);
   }
+
   50% {
-    height: 150px;
-    width: 150px;
-    transform: rotate(0deg);
+    transform: rotate(270deg) scale(1.3);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
   }
 }
 
 @keyframes mb-glow {
   0% {
-    transform: rotate(-180deg);
+    transform: rotate(-180deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(-270deg) scale(1.2);
   }
 
   100% {
-    transform: rotate(-360deg);
+    transform: rotate(-360deg) scale(1);
   }
 }
 
