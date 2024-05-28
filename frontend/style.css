@@ -16,7 +16,7 @@ body {
 }
 
 #open-console-button {
-  border: dashed black 5px;
+  border: dashed black 4px;
   background-color: rgb(255, 255, 255);
   border-radius: 100px;
   animation: glow 2000ms infinite linear forwards;
@@ -43,15 +43,19 @@ body {
 #page-wrapper {
   position: relative;
   visibility: hidden;
-  transition-duration: 200ms;
+  transition: opacity 1s;
   width: 100%;
+  opacity: 0;
 }
 
 #heading-container {
-  position: relative;
-  display: flex;
+  position: fixed;
+  display: block;
+  width: 100%;
   flex-direction: column;
-  padding: 0px 40px 5px 40px;
+  padding: 0px 40px 0px 0px;
+  border-bottom: 0px solid red;
+  box-shadow: rgb(255, 255, 255) 0 20px 30px;
 }
 
 #welcome-content {
@@ -59,8 +63,9 @@ body {
   justify-content: center; /* Centers the content horizontally */
   align-items: center; /* Centers the content vertically if necessary */
   padding: 300px 0;
+  padding-bottom: 0px;
   text-align: center; /* Ensures text alignment for inner text */
-  width: 100%; /* Ensures the container takes full width */
+  width: 100%;
 }
 
 .text-container {
@@ -80,28 +85,25 @@ body {
   margin: 0 0;
   font-weight: 1000;
   font-size: 60px;
-  position: fixed;
-  width: 95%;
+  position: relative;
   z-index: 1;
   background-color: white;
+  padding-left: 30px;
 
   &:hover {
     cursor: pointer;
   }
 }
 
-.page-heading:hover .page-subtitle {
-  background-color: white;
-}
-
 .page-subtitle {
-  margin: 0 auto;
-  font-weight: 700;
+  margin: auto auto;
+  display: inline-flex;
+  font-weight: 800;
   font-size: 20px;
-  font-style: italic;
+  /* font-style: italic; */
   position: relative;
   z-index: 1;
-  background-color: blue;
+  transform: translate(0px, -3px);
 }
 
 .welcome-title {

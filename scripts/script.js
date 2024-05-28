@@ -1,12 +1,23 @@
-/*page transition*/
-document.getElementById("open-console-button").onclick = function () {
-  setTimeout(() => {
-    document.getElementById("welcome-screen").style.display = "none";
-  }, 50);
+/* Global Variables */
+var welcomescreen = document.getElementById("welcome-screen");
+var pagewrapper = document.getElementById("page-wrapper");
 
-  setTimeout(() => {
-    document.getElementById("page-wrapper").style.visibility = "visible";
-  }, 101);
+/* Page transition */
+document.getElementById("open-console-button").onclick = function () {
+  welcomescreen.style.transition = "opacity 1s";
+
+  setTimeout(function () {
+    welcomescreen.style.opacity = "0";
+  }, 0);
+
+  setTimeout(function () {
+    welcomescreen.style.display = "none";
+  }, 1000); // Matches the transition duration
+
+  setTimeout(function () {
+    pagewrapper.style.visibility = "visible";
+    pagewrapper.style.opacity = "1";
+  }, 1000); // Set visibility and opacity after welcome screen is hidden
 };
 
 //moving button//
@@ -23,6 +34,8 @@ document.body.onpointermove = (event) => {
     { duration: 2000, fill: "forwards" }
   );
 };
+
+/*logo animation */
 
 /*options button */
 document.getElementById("menu-button").onmouseover = function () {
