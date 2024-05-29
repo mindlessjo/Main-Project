@@ -50,7 +50,6 @@ body {
   transition: opacity 1s;
   width: 100%;
   opacity: 0;
-  overflow: none;
 }
 
 #heading-container {
@@ -89,29 +88,54 @@ body {
   align-items: center;
   text-align: center;
   width: 100%;
-  margin-top: 275px;
-  scroll-snap-type: y mandatory;
-  overflow-x: scroll;
+  margin-top: 300px;
 }
 
 #quick-cards-container {
   display: flex;
+  gap: 10px;
   position: relative;
   align-items: center;
-  overflow: auto;
+  overflow-x: auto;
+  width: calc(3 * 275px + 5 * 10px);
+  height: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  /* border-left: solid black 2px;
+  border-right: solid black 2px;
+  box-shadow: red 0 20px 20px inset;
+  padding-top: 20px; */
 }
 
 .quick-card {
+  position: relative;
+  flex: 0 0 auto; /* Prevent shrinking */
   width: 275px;
   height: 325px;
   background-color: black;
   border-radius: 10%;
+  margin-right: 10px;
   transition-duration: 250ms;
+  cursor: pointer;
 
   &:hover {
     background-color: white;
-    transition-delay: 50ms;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
   }
+}
+
+.btn-scroll {
+  font-weight: 1000;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background-color: black;
+  border: none;
+  color: white;
+  position: relative;
+  margin: 0 20px;
+  cursor: pointer;
 }
 
 /*global text classes*/

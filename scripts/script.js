@@ -1,8 +1,8 @@
-/* Global Variables */
+// Global Variables
 var welcomescreen = document.getElementById("welcome-screen");
 var pagewrapper = document.getElementById("page-wrapper");
 
-/* Page transition */
+// Page Transition
 document.getElementById("open-console-button").onclick = function () {
   welcomescreen.style.transition = "opacity 1s";
 
@@ -20,7 +20,7 @@ document.getElementById("open-console-button").onclick = function () {
   }, 1000); // Set visibility and opacity after welcome screen is hidden
 };
 
-//moving button//
+// Tracking Button
 const move = document.getElementById("move");
 
 document.body.onpointermove = (event) => {
@@ -35,9 +35,9 @@ document.body.onpointermove = (event) => {
   );
 };
 
-/*logo animation */
+// Logo Animation
 
-/*options button */
+// Options Button
 document.getElementById("menu-button").onmouseover = function () {
   this.style.transform = "scale(1.5)";
   setTimeout(() => {
@@ -51,3 +51,25 @@ document.getElementById("menu-button").onmouseout = function () {
     this.classList.add("mb-minimize");
   }, 200);
 };
+
+// Scroll Buttons
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("quick-cards-container");
+  const btnScrollLeft = document.querySelector(".btn-scroll.left");
+  const btnScrollRight = document.querySelector(".btn-scroll.right");
+  const cardWidth = document.querySelector(".quick-card").offsetWidth;
+
+  btnScrollLeft.addEventListener("click", () => {
+    container.scrollBy({
+      left: -cardWidth,
+      behavior: "smooth",
+    });
+  });
+
+  btnScrollRight.addEventListener("click", () => {
+    container.scrollBy({
+      left: cardWidth,
+      behavior: "smooth",
+    });
+  });
+});
