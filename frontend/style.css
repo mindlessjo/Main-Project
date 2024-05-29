@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: rgb(255, 255, 255);
   margin: 0 0;
@@ -46,6 +50,7 @@ body {
   transition: opacity 1s;
   width: 100%;
   opacity: 0;
+  overflow: none;
 }
 
 #heading-container {
@@ -55,7 +60,8 @@ body {
   flex-direction: column;
   padding: 0px 40px 0px 0px;
   border-bottom: 0px solid red;
-  box-shadow: rgb(255, 255, 255) 0 20px 30px;
+  box-shadow: rgb(255, 255, 255) 0 40px 10px;
+  z-index: 10;
 }
 
 #welcome-content {
@@ -75,6 +81,39 @@ body {
   width: max-content; /* Ensures the container width is minimal to fit content */
 }
 
+#quick-cards-wrapper {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin-top: 275px;
+  scroll-snap-type: y mandatory;
+  overflow-x: scroll;
+}
+
+#quick-cards-container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  overflow: auto;
+}
+
+.quick-card {
+  width: 275px;
+  height: 325px;
+  background-color: black;
+  border-radius: 10%;
+  transition-duration: 250ms;
+
+  &:hover {
+    background-color: white;
+    transition-delay: 50ms;
+  }
+}
+
 /*global text classes*/
 .uline {
   text-decoration: underline 10px solid black;
@@ -86,7 +125,6 @@ body {
   font-weight: 1000;
   font-size: 60px;
   position: relative;
-  z-index: 1;
   background-color: white;
   padding-left: 30px;
 
@@ -127,6 +165,7 @@ body {
   right: 0;
   padding: 20px 40px;
   z-index: 2;
+  z-index: 10;
 }
 
 #menu-button {
