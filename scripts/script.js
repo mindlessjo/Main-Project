@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("quick-cards-container");
   const btnScrollLeft = document.querySelector(".btn-scroll.left");
   const btnScrollRight = document.querySelector(".btn-scroll.right");
-  const cardWidth = document.querySelector(".quick-card").offsetWidth;
+  const cardWidth = document.querySelector(".quick-card").offsetWidth + 10; // Including gap
 
   btnScrollLeft.addEventListener("click", () => {
     container.scrollBy({

@@ -59,7 +59,7 @@ body {
   flex-direction: column;
   padding: 0px 40px 0px 0px;
   border-bottom: 0px solid red;
-  box-shadow: rgb(255, 255, 255) 0 40px 10px;
+  box-shadow: rgb(255, 255, 255) 0 10px 10px;
   z-index: 10;
 }
 
@@ -91,45 +91,48 @@ body {
   margin-top: 300px;
 }
 
+#quick-cards-container-wrapper {
+  overflow: hidden; /* Hide overflowing cards */
+  width: calc(3 * 275px + 2 * 10px); /* Width to fit exactly 3 cards and gaps */
+}
+
 #quick-cards-container {
   display: flex;
   gap: 10px;
   position: relative;
   align-items: center;
   overflow-x: auto;
-  width: calc(3 * 275px + 5 * 10px);
+  width: 100%;
   height: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  /* border-left: solid black 2px;
-  border-right: solid black 2px;
-  box-shadow: red 0 20px 20px inset;
-  padding-top: 20px; */
+  padding: 20px 0;
 }
 
 .quick-card {
   position: relative;
-  flex: 0 0 auto; /* Prevent shrinking */
+  flex: 0 0 auto;
   width: 275px;
   height: 325px;
   background-color: black;
   border-radius: 10%;
-  margin-right: 10px;
-  transition-duration: 250ms;
+  scroll-snap-align: start;
+  transition: background-color 300ms ease-out;
   cursor: pointer;
+  outline-style: none;
+}
 
-  &:hover {
-    background-color: white;
-    transition-duration: 300ms;
-    transition-timing-function: ease-out;
-  }
+.quick-card:hover {
+  background-color: white;
+  border: 6px solid rgb(122, 122, 122);
 }
 
 .btn-scroll {
-  font-weight: 1000;
   width: 60px;
   height: 60px;
   border-radius: 100%;
+  font-weight: 900;
+  font-style: bold;
   background-color: black;
   border: none;
   color: white;
