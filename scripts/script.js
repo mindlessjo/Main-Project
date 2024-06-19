@@ -59,17 +59,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnScrollRight = document.querySelector(".btn-scroll.right");
   const cardWidth = document.querySelector(".quick-card").offsetWidth;
 
-  btnScrollLeft.addEventListener("click", () => {
-    container.scrollBy({
-      left: -cardWidth,
-      behavior: "smooth",
-    });
+  let scrollInterval;
+
+  btnScrollLeft.addEventListener("mousedown", () => {
+    scrollInterval = setInterval(() => {
+      container.scrollBy({
+        left: -75, // Adjust this value for desired scrolling speed
+        behavior: "smooth",
+      });
+    }, 10); // Adjust this value for smoother/faster scrolling
   });
 
-  btnScrollRight.addEventListener("click", () => {
-    container.scrollBy({
-      left: cardWidth,
-      behavior: "smooth",
-    });
+  btnScrollLeft.addEventListener("mouseup", () => {
+    clearInterval(scrollInterval);
+  });
+
+  btnScrollRight.addEventListener("mousedown", () => {
+    scrollInterval = setInterval(() => {
+      container.scrollBy({
+        left: 75, // Adjust this value for desired scrolling speed
+        behavior: "smooth",
+      });
+    }, 10); // Adjust this value for smoother/faster scrolling
+  });
+
+  btnScrollRight.addEventListener("mouseup", () => {
+    clearInterval(scrollInterval);
   });
 });
